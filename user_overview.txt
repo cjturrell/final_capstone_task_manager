@@ -1,0 +1,43 @@
+User Overview - 2024-02-13
+
+Total number of users registered: 6
+Total number of tasks: 8
+
+User: admin
+Tasks assigned: 2
+Percent of tasks assigned: 25%
+Percent complete: 100%
+Percent incomplete: 0%
+Percent overdue: 0%
+
+User: bella
+Tasks assigned: 2
+Percent of tasks assigned: 25%
+Percent complete: 0%
+Percent incomplete: 100%
+Percent overdue: 0%
+
+User: caitlin
+Tasks assigned: 1
+Percent of tasks assigned: 12%
+Percent complete: 0%
+Percent incomplete: 100%
+Percent overdue: 100%
+
+User: charlie
+Tasks assigned: 2
+Percent of tasks assigned: 25%
+Percent complete: 0%
+Percent incomplete: 100%
+Percent overdue: 100%
+
+User: Stanya
+Tasks assigned: 1
+Percent of tasks assigned: 12%
+Percent complete: 100%
+Percent incomplete: 0%
+Percent overdue: 0%
+
+User: rachel
+Tasks assigned: 0
+Percent of tasks assigned: 0%

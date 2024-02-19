@@ -1,0 +1,6 @@
+admin;password
+bella;badger
+caitlin;rollie
+charlie;kelsey
+Stanya;Atti
+rachel;ralph

@@ -1,0 +1,8 @@
+Task Overview - 2024-02-13
+
+Total number of tasks: 8
+Total number of completed tasks: 3
+Total number of uncompleted tasks: 5
+Total number of overdue tasks: 3
+Percentage of tasks incomplete: 62%
+Percentage of tasks overdue: 37%
