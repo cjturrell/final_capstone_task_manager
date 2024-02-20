@@ -137,26 +137,23 @@ def add_task(username_password, task_list):
         username_password[username] = password
 
     while True:
-        task_username = input("Name of person assigned to task (enter to exit)\
-                              \n: ")
-        if task_username == "":
+        task_user = input("Name of person assigned to task (enter to exit)\n: ")
+        if task_user == "":
             print("Going back to main menu")
             break
 
-        elif task_username not in username_password.keys():
+        elif task_user not in username_password.keys():
             print("User does not exist. Please enter a valid username\n")
-            task_username = False
+            task_user = False
         
         else:
             task_title = input("Title of Task: ")
             task_description = input("Description of Task: ")
-           
-            # valid_due_date()  ?!?!?!?!?!?!?!?!?!?!?
+
             while True:
                 try:
                     task_due_date = input("Due date of task (YYYY-MM-DD): ")
-                    due_date_time = datetime.strptime(task_due_date, \
-                                                      DATETIME_STRING_FORMAT)
+                    due_date_time = datetime.strptime(task_due_date, DATETIME_STRING_FORMAT)
                     # Assign current date
                     curr_date = date.today()
                     if due_date_time.strftime('%Y-%m-%d') \
@@ -167,10 +164,10 @@ def add_task(username_password, task_list):
                 except ValueError:
                     print("Invalid datetime format\n")
 
-            ''' Add the data to the file task.txt and
-                Include 'No' to indicate if the task is complete.'''
+            # Add the data to the file task.txt
+            # Include 'No' to indicate if the task is complete
             new_task = {
-                "username": task_username,
+                "username": task_user,
                 "title": task_title,
                 "description": task_description,
                 "due_date": due_date_time,
@@ -200,17 +197,21 @@ def view_all(task_list):
 # Mark task as complete ======================================================
 def task_complete(task_list, task_edit_index, select_task):
     """
-    The function `task_complete` prompts the user to input whether a task is complete or not, updates
-    the task's completion status in the task list, and writes the updated task list to a file.
+    The function `task_complete` prompts the user to input whether a task is 
+    complete or not, updates
+    the task's completion status in the task list, and writes the updated task 
+    list to a file.
     
-    :param task_list: The task_list parameter is a list of dictionaries that represents a collection of
-    tasks. Each dictionary in the list represents a single task and contains information such as the
-    task's description, due date, and completion status
-    :param task_edit_index: The `task_edit_index` parameter is the index of the task in the `task_list`
-    that needs to be edited. It is used to access the specific task in the list and update its
-    completion status
-    :param select_task: The `select_task` parameter is the task that the user has selected to edit or
-    mark as complete. It is used to display the task number in the output message
+    :param task_list: The task_list parameter is a list of dictionaries that 
+    represents a collection of tasks. Each dictionary in the list represents a 
+    single task and contains information such as the task's description, 
+    due date, and completion status.
+    :param task_edit_index: The `task_edit_index` parameter is the index of the 
+    task in the `task_list` that needs to be edited. It is used to access the 
+    specific task in the list and update its completion status.
+    :param select_task: The `select_task` parameter is the task that the user 
+    has selected to edit or mark as complete. It is used to display the task 
+    number in the output message.
     """
     while True:
         task_complete = input("\nIs this task complete Y/N?: ").upper()
@@ -273,8 +274,7 @@ def new_due_date(task_list, task_edit_index, select_task):
         while True:
             try:
                 new_due_date = input("\nNew due date (YYYY-MM-DD): ")
-                new_date_time = datetime.strptime\
-                    (new_due_date, DATETIME_STRING_FORMAT)
+                new_date_time = datetime.strptime(new_due_date, DATETIME_STRING_FORMAT)
                 # Assign current date
                 curr_date = date.today()
                 if new_date_time.strftime('%Y-%m-%d') \
@@ -325,8 +325,8 @@ def view_mine(task_list, curr_user, username_password):
 
         elif task_count > 0:  
             print_line()   
-            select_task = (input("Task number to edit or mark as complete \
-                                    \n(or -1 to exit): "))
+            select_task = (input("Task number to edit or mark as complete"
+                                 "\n(or -1 to exit): "))
             if select_task == "-1":
                 break
                 
@@ -348,18 +348,18 @@ def view_mine(task_list, curr_user, username_password):
                             break
 
                         elif edit_task == "1":
-                            task_complete(task_list, task_edit_index, \
-                                            select_task)
+                            task_complete(task_list, task_edit_index, 
+                                          select_task)
                             break
 
                         elif edit_task == "2":
-                            new_task_user(username_password, task_list, \
-                                        task_edit_index, select_task)
+                            new_task_user(username_password, task_list, 
+                                          task_edit_index, select_task)
                             break 
                                 
                         elif edit_task == "3":
-                            new_due_date(task_list, task_edit_index, \
-                                            select_task)
+                            new_due_date(task_list, task_edit_index, 
+                                         select_task)
                             break
 
                         else:
@@ -406,7 +406,7 @@ def create_task_overview_file(task_list):
         file.write(f"Total number of completed tasks: {num_completed}\n")
         file.write(f"Total number of uncompleted tasks: {num_uncompleted}\n")
         file.write(f"Total number of overdue tasks: {num_overdue}\n")
-        file.write(f"Percentage of tasks incomplete: "\
+        file.write(f"Percentage of tasks incomplete: "
                    f"{int(percent_incomplete)}%\n")
         file.write(f"Percentage of tasks overdue: {int(percent_overdue)}%\n")
     
@@ -432,7 +432,7 @@ def create_user_overview_file(username_password, task_list):
     # Open and create new text file
     with open('user_overview.txt', 'w') as file:
         file.write(f"User Overview - {date.today()}\n\n")
-        file.write(f"Total number of users registered: "\
+        file.write(f"Total number of users registered: "
                    f"{total_users_registered}\n")
         file.write(f"Total number of tasks: {total_num_tasks}\n")
         
@@ -456,7 +456,7 @@ def create_user_overview_file(username_password, task_list):
             
             # Calculate percentage of tasks assigned to user
             percent_tasks_user = (user_total_tasks/total_num_tasks)*100
-            file.write(f"Percent of tasks assigned: "\
+            file.write(f"Percent of tasks assigned: "
                        f"{int(percent_tasks_user)}%\n")
             
             # If tasks assigned, calculate percentages and write to txt file
@@ -464,9 +464,9 @@ def create_user_overview_file(username_password, task_list):
                 percent_complete_user=(user_completed/user_total_tasks)*100
                 percent_incomplete_user=(user_uncompleted/user_total_tasks)*100
                 percent_overdue_user=(user_overdue/user_total_tasks)*100
-                file.write(f"Percent complete: "\
+                file.write(f"Percent complete: "
                            f"{int(percent_complete_user)}%\n")
-                file.write(f"Percent incomplete: "\
+                file.write(f"Percent incomplete: "
                            f"{int(percent_incomplete_user)}%\n")
                 file.write(f"Percent overdue: {int(percent_overdue_user)}%\n")
 

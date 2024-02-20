@@ -33,9 +33,9 @@ for task_str in task_data:
     curr_task['username'] = task_components[0]
     curr_task['title'] = task_components[1]
     curr_task['description'] = task_components[2]
-    curr_task['due_date'] = datetime.strptime(task_components[3], \
+    curr_task['due_date'] = datetime.strptime(task_components[3], 
                                               DATETIME_STRING_FORMAT)
-    curr_task['assigned_date'] = datetime.strptime(task_components[4], \
+    curr_task['assigned_date'] = datetime.strptime(task_components[4],
                                                    DATETIME_STRING_FORMAT) 
     curr_task['completed'] = True if task_components[5] == "Yes" else False
 
